@@ -3,6 +3,16 @@ import './App.css';
 import CommentsList from './components.js/CommentsList';
 import TemperatureConverter from './components.js/TemperatureConverter';
 import TodoApp from './components.js/TodoList ';
+import {
+  BrowserRouter, Router,
+  Routes,
+  Route,
+  Link,
+  Outlet,
+} from "react-router-dom";
+import { HomePage } from './components.js/HomePage';
+import { AboutPage } from './components.js/AboutPage';
+import { MainPage } from './components.js/MainPage';
 
 function App() {
   // homework lesson 1
@@ -24,6 +34,19 @@ function App() {
       <TemperatureConverter /> {/* component/TemperatureConverter.js */}
       {/* task2 */}
       <TodoApp /> {/* component/TodoList.js */}
+      {/* homework lesson 4 */}
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path='/' element={<MainPage />} />
+            {/* <Route index element={<div>No page is selected.</div>} /> */}
+            <Route path='/HomePage' element={<HomePage />} />
+            <Route path='/AboutPage' element={<AboutPage />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+
+
     </div>
   );
 }
@@ -41,6 +64,7 @@ function Message({ name, number, text }) {
   );
 }
 */
+
 
 
 export default App;
