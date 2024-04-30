@@ -7,7 +7,7 @@ export const ThemeContext = createContext();
 // Создаём пользовательские хуки для удобства пользования контекстов
 const useTheme = () => useContext(ThemeContext);
 
-//Компонент для переключения темы
+//Компонент для переключения темы 
 export const ThemeToggle = () => {
     const { theme, toggleTheme } = useTheme();
     return (

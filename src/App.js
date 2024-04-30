@@ -66,8 +66,6 @@ function App() {
           <h2>Смена темы</h2>
           <ThemeToggle /> {/* component/ThemeToggle.jsx */}
         </div>
-
-
       </div>
     </ThemeContext.Provider>
   );
