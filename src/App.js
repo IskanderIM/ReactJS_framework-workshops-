@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import CommentsList from './components.js/CommentsList';
-import TemperatureConverter from './components.js/TemperatureConverter';
-import TodoApp from './components.js/TodoList ';
+import CommentsList from './components/CommentsList';
+import TemperatureConverter from './components/TemperatureConverter';
+import TodoApp from './components/TodoList ';
 import {
   BrowserRouter, Router,
   Routes,
@@ -10,15 +10,18 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import { HomePage } from './components.js/HomePage';
-import { AboutPage } from './components.js/AboutPage';
-import { MainPage } from './components.js/MainPage';
-import { MaterialUISwitch } from './components.js/MaterialUISwitch';
+import { HomePage } from './components/HomePage';
+import { AboutPage } from './components/AboutPage';
+import { MainPage } from './components/MainPage';
+import { MaterialUISwitch } from './components/MaterialUISwitch';
 import { createContext, useContext, useState } from 'react';
-import { ThemeContext, ThemeToggle } from './components.js/ThemeToggle';
+import { ThemeContext, ThemeToggle } from './components/ThemeToggle';
 import { AddProductForm } from './products/AddProductForm';
 import { ProductsList } from './products/ProductsList';
 import { EditProductForm } from './products/EditProductForm';
+import { storeTasks } from './app/store';
+import { Provider } from 'react-redux';
+import TasksList from './components/TasksList';
 
 
 
@@ -75,12 +78,14 @@ function App() {
       {/* homework lesson 6 */}
       <div>
         <h2>Управление каталогом</h2>
-
         <AddProductForm /> {/* ./products/AddProductForm.js */}
         <ProductsList /> {/* ./products/ProductsList.js */}
         <EditProductForm /> {/* ./products/EditProductForm.js */}
-
       </div>
+      {/* homework lesson 7 */}
+      <Provider store={storeTasks}>
+        <TasksList />
+      </Provider>
 
     </>
   );
