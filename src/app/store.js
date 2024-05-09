@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productsReducer from "../products/productsSlice";
+import tasksReducer from '../reducers/tasksSlice';
 
 export const store = configureStore({
     reducer: {
@@ -7,3 +8,8 @@ export const store = configureStore({
     },
 });
 
+export const storeTasks = configureStore({
+    reducer: {
+        tasks: tasksReducer,
+    },
+});
