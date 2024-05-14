@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Фреймворк React JS (семинары) - React-GB
+=
+## Урок 6. Погружение в Redux. Connect
+Разработать приложение для управления каталогом продуктов, позволяющее добавлять, удалять, отображать и редактировать продукты.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Настройка Redux Store:**
 
-## Available Scripts
+Используйте configureStore из @reduxjs/toolkit для создания хранилища.
+Определите начальное состояние и создайте слайс с использованием createSlice для продуктов. Каждый продукт должен иметь id, name, description, price, и available.
 
-In the project directory, you can run:
+В слайсе определите редьюсеры и действия для добавления нового продукта, удаления продукта по ID, обновления продукта и изменения его доступности.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Компоненты React:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Компонент для добавления продукта:**
+Создайте форму, позволяющую пользователям вводить данные нового продукта (имя, описание, цена, доступность) и добавлять его в каталог.
 
-### `npm test`
+**омпонент для отображения продуктов:**
+Разработайте компонент, который отображает список всех продуктов с их атрибутами, а также кнопки для удаления продукта из каталога и переключения его доступности.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Компонент для редактирования продукта:**
+Опционально, предоставьте возможность редактирования существующих продуктов, чтобы можно было изменять их имя, описание, цену и доступность.
 
-### `npm run build`
+## Урок 7. Redux middlewares. Redux persist
+### Имитация асинхронной загрузки и отображения списка задач из локального хранилища.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Инициализация проекта и установка зависимостей:** Инициализируйте новый проект React . Установите @reduxjs/toolkit и react-redux.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Создание локальных данных:** Определите массив объектов, представляющих задачи, в файле, например, src/data/tasks.js. Каждая задача может содержать поля, такие как id, title и completed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Настройка Redux store:** Создайте Redux store с использованием configureStore из @reduxjs/toolkit. Используйте Redux Thunk middleware, уже включённый в @reduxjs/toolkit.
 
-### `npm run eject`
+4. **Создание асинхронного действия с использованием Thunk:** Используйте createAsyncThunk для создания асинхронного действия, которое "загружает" данные задач из локального файла. Хотя данные и локальные, имитируйте асинхронное поведение, например, с использованием setTimeout.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. **Работа с компонентом:** Используйте хуки useDispatch и useSelector в компоненте для диспетчеризации асинхронного действия и выборки списка задач из состояния. Выведите список задач.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Урок 8. Работа с API
+В финальном проекте вам необходимо применить все знания, которые вы получили на протяжении всего курса.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Для выполнения задания вам потребуется вёрстка сайта Интернет-магазина из курсов по HTML/CSS: https://www.figma.com/file/SbfOi2i4S1pIs0G6uOLPCx/shop-(Copy)?type=design&node-id=0-1&mode=design&t=HqHf7Yort2ND3o3y-0
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Так как у вас уже есть готовая вёрстка, вам необходимо перевести проект на react.
 
-## Learn More
+### Функционал который необходим:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Все товары являются компонентами.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Разбить сайт на необходимые компоненты, чтобы исключить дублирование кода и чтобы можно было легче редактировать проект.
 
-### Code Splitting
+3. На странице каталога есть сортировка по размеру (S, XS, L, M) необходимо реализовать даный функционал, к какому именно размеру будет относиться тот или иной товар, не имеет значения.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Реализовать переключение между страницами с помощью Routing.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5. На странице корзины реализовать верный подсчет общей цены товаров (GRAND TOTAL $900) плюс реализовать возможность менять количество товара, это также должно влиять на цену товар (GRAND TOTAL $900).
