@@ -16,6 +16,9 @@ import { MainPage } from './components.js/MainPage';
 import { MaterialUISwitch } from './components.js/MaterialUISwitch';
 import { createContext, useContext, useState } from 'react';
 import { ThemeContext, ThemeToggle } from './components.js/ThemeToggle';
+import { AddProductForm } from './products/AddProductForm';
+import { ProductsList } from './products/ProductsList';
+import { EditProductForm } from './products/EditProductForm';
 
 
 
@@ -42,32 +45,44 @@ function App() {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}> {/* component/ThemeToggle.jsx */}
-      <div className="App" style={{ color: theme === 'light' ? 'black' : 'white', background: theme === 'light' ? 'white' : 'black' }}>
-        <CommentsList />
-        {/* homework lesson 3 */}
-        {/* task1 */}
-        <TemperatureConverter /> {/* component/TemperatureConverter.js */}
-        {/* task2 */}
-        <TodoApp /> {/* component/TodoList.js */}
-        {/* homework lesson 4 */}
-        <div>
-          <BrowserRouter>
-            <Routes>
-              <Route exact path='/' element={<MainPage />} />
-              {/* <Route index element={<div>No page is selected.</div>} /> */}
-              <Route path='/HomePage' element={<HomePage />} />
-              <Route path='/AboutPage' element={<AboutPage />} />
-            </Routes>
-          </BrowserRouter>
+    <>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}> {/* component/ThemeToggle.jsx */}
+        <div className="App" style={{ color: theme === 'light' ? 'black' : 'white', background: theme === 'light' ? 'white' : 'black' }}>
+          <CommentsList />
+          {/* homework lesson 3 */}
+          {/* task1 */}
+          <TemperatureConverter /> {/* component/TemperatureConverter.js */}
+          {/* task2 */}
+          <TodoApp /> {/* component/TodoList.js */}
+          {/* homework lesson 4 */}
+          <div>
+            <BrowserRouter>
+              <Routes>
+                <Route exact path='/' element={<MainPage />} />
+                {/* <Route index element={<div>No page is selected.</div>} /> */}
+                <Route path='/HomePage' element={<HomePage />} />
+                <Route path='/AboutPage' element={<AboutPage />} />
+              </Routes>
+            </BrowserRouter>
+          </div>
+          {/* homework lesson 5 */}
+          <div>
+            <h2>Смена темы</h2>
+            <ThemeToggle /> {/* component/ThemeToggle.jsx */}
+          </div>
         </div>
-        {/* homework lesson 5 */}
-        <div>
-          <h2>Смена темы</h2>
-          <ThemeToggle /> {/* component/ThemeToggle.jsx */}
-        </div>
+      </ThemeContext.Provider>
+      {/* homework lesson 6 */}
+      <div>
+        <h2>Управление каталогом</h2>
+
+        <AddProductForm /> {/* ./products/AddProductForm.js */}
+        <ProductsList /> {/* ./products/ProductsList.js */}
+        <EditProductForm /> {/* ./products/EditProductForm.js */}
+
       </div>
-    </ThemeContext.Provider>
+
+    </>
   );
 }
 
